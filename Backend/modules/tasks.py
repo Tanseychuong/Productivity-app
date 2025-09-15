@@ -5,7 +5,7 @@
 #The imported modules that are neccessary
 #_____________________________________________________________________________________________
 import json
-import Backend.modules.utils as utils
+from . import utils
 #_____________________________________________________________________________________________
 
 # The function that adds a new task
@@ -82,6 +82,7 @@ def mark_task_as_completed():
     for task in tasks:
         if task['name'] == task_name:
             task['completed'] = True
+            utils.save_items("data/tasks.json", tasks)
             print("Task marked as completed.")
             return mark_task_as_completed
     else:

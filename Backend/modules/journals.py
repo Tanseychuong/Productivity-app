@@ -1,6 +1,6 @@
 # Import necessary libraries for journal management
 #____________________________________________________________________________________________________________________________________
-import Backend.modules.utils as utils
+from . import utils
 #____________________________________________________________________________________________________________________________________
 
 
@@ -132,8 +132,7 @@ def main():
             break
         else:
             print("Invalid input")
-    return main()
-main()
+
 ''' End of main function'''
 #____________________________________________________________________________________________________________________________________________
 #This module provides a simple journal management system, allowing users to add, view, edit, and delete journal entries.

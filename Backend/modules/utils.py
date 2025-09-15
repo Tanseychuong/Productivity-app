@@ -15,7 +15,7 @@ def load_items(file_path): # Function to load items from a file
         with open(file_path, "r") as file:
             items = json.load(file) #unpacking the JSON data
         return items
-    except (FileExistsError, json.JSONDecodeError) as e:
+    except (FileNotFoundError, json.JSONDecodeError) as e:
         print(f"Error loading items: {e}")
         return []
 '''End load_items function'''
@@ -44,4 +44,25 @@ def validate_email(email): # Function to validate email format
         print(f"Error validating email")
     return False
 '''End validate_email function'''
+#______________________________________________________________________________________________
+
+
+# Function to validate non-empty string input
+#_____________________________________________________________________________________________
+def validate_non_empty_string(input_value, prompt):
+    """Validate that input is not empty, keep prompting until valid input is provided."""
+    while not input_value or input_value.strip() == "":
+        input_value = input(prompt)
+    return input_value.strip()
+'''End validate_non_empty_string function'''
+#_____________________________________________________________________________________________
+
+
+# Function for undo last change (placeholder)
+#_____________________________________________________________________________________________
+def undo_last_change():
+    """Placeholder function for undo functionality."""
+    print("Undo functionality not implemented yet.")
+    return False
+'''End undo_last_change function'''
 #______________________________________________________________________________________________

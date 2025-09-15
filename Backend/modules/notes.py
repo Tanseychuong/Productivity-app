@@ -1,7 +1,7 @@
 #This is a note writing script for managing notes
 #Imported libraries neccessary for the development of note managment system
 #_____________________________________________________________________________________________
-import Backend.modules.utils as utils
+from . import utils
 #_____________________________________________________________________________________________
 
 

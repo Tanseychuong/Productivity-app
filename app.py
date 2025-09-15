@@ -35,9 +35,10 @@ while True:
         tasks.main()  # Call the main function from tasks.py
     elif choice == "0":
         print("Exiting the system. Goodbye!")
+        break
     else:
         print("Invalid choice. Please try again.")
-        sys.exit(1)
+        continue
 '''End of the main module'''
 #__________________________________________________________________________________________________
 # This module serves as the entry point for the smart personal 

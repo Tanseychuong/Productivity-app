@@ -4,7 +4,7 @@
 
 '''#The imported modules necessary for contact management
 #____________________________________________________________________________________________________
-import utils  #importing utils module for handling JSON data
+from . import utils  #importing utils module for handling JSON data
 #____________________________________________________________________________________________________
 
 
@@ -168,7 +168,7 @@ def main():
 import os
 from typing import List, Dict
 from tabulate import tabulate
-import Backend.modules.utils as utils
+from . import utils
 
 os.makedirs("data", exist_ok=True)  # Ensure data directory exists
 
