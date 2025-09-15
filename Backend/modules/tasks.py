@@ -13,7 +13,7 @@ from . import utils
 def add_task():
     task_name = input("Enter the task name: ")
     task_description = input("Enter the task description: ")
-    tasks = utils.load_items("data/tasks.json")
+    tasks = utils.load_items("Backend/data/tasks.json")
     today = utils.get_current_timestamp()
     today_date = today.split(" ")[0]  # Get only the date part
     year_today = today_date.split("-")[0]  # Get the current year
@@ -29,7 +29,7 @@ def add_task():
         'description': task_description,
         'due_date': task_due_date
     })
-    utils.save_items("data/tasks.json", tasks)
+    utils.save_items("Backend/data/tasks.json", tasks)
     return add_task
 #_____________________________________________________________________________________________
 
@@ -38,7 +38,7 @@ def add_task():
 #_____________________________________________________________________________________________
 def view_tasks():
     try:
-        tasks = utils.load_items("data/tasks.json")
+        tasks = utils.load_items("Backend/data/tasks.json")
         if not tasks:
             print("No tasks found.")
             return
@@ -60,7 +60,7 @@ def view_today_tasks():
     today_date_time = utils.get_current_timestamp()
     today_date = today_date_time.split(" ")
     today = today_date[0]
-    tasks = utils.load_items("data/tasks.json")
+    tasks = utils.load_items("Backend/data/tasks.json")
     today_tasks = [task for task in tasks if task['due_date'] == today]
     if not today_tasks:
         print("No tasks for today.")
@@ -78,16 +78,16 @@ def view_today_tasks():
 #_____________________________________________________________________________________________
 def mark_task_as_completed():
     task_name = input("Enter the name of the task to mark as completed: ")
-    tasks = utils.load_items("data/tasks.json")
+    tasks = utils.load_items("Backend/data/tasks.json")
     for task in tasks:
         if task['name'] == task_name:
             task['completed'] = True
-            utils.save_items("data/tasks.json", tasks)
+            utils.save_items("Backend/data/tasks.json", tasks)
             print("Task marked as completed.")
             return mark_task_as_completed
     else:
         print("Task not found.")
-    utils.save_items("data/tasks.json", tasks)
+    utils.save_items("Backend/data/tasks.json", tasks)
     return mark_task_as_completed
 #_____________________________________________________________________________________________
 
@@ -96,9 +96,9 @@ def mark_task_as_completed():
 #_____________________________________________________________________________________________
 def delete_task():
     task_name = input("Enter the name of the task to delete: ")
-    tasks = utils.load_items("data/tasks.json") # Load existing tasks
+    tasks = utils.load_items("Backend/data/tasks.json") # Load existing tasks
     tasks = [task for task in tasks if task['name'] != task_name] # Filter out the task to be deleted
-    utils.save_items("data/tasks.json", tasks) # Save updated tasks
+    utils.save_items("Backend/data/tasks.json", tasks) # Save updated tasks
     print(f"Task '{task_name}' deleted successfully.")
     return delete_task
 #_____________________________________________________________________________________________

@@ -17,11 +17,11 @@ def add_note():
         "date": date
     }
     # Load existing notes
-    notes = utils.load_items("data/notes.json")
+    notes = utils.load_items("Backend/data/notes.json")
     # Add the new note
     notes.append(note)
     # Save notes
-    utils.save_items("data/notes.json", notes)
+    utils.save_items("Backend/data/notes.json", notes)
     return add_note
 '''End add_note function'''
 #_____________________________________________________________________________________________
@@ -30,7 +30,7 @@ def add_note():
 #The view_all_notes function displays all notes in the system.
 #_____________________________________________________________________________________________
 def view_all_notes():
-    notes = utils.load_items("data/notes.json")
+    notes = utils.load_items("Backend/data/notes.json")
     for note in notes:
         print(f"Title: {note['title']}, Date: {note['date']}\nContent: {note['content']}\n")
     if not notes:
@@ -44,7 +44,7 @@ def view_all_notes():
 #_____________________________________________________________________________________________
 def view_note_by_date():
     date_to_view = input("Enter date in format: yyyy-mm-dd: ")
-    notes = utils.load_items("data/notes.json")
+    notes = utils.load_items("Backend/data/notes.json")
     found = False
     for note in notes:
         if note['date'].startswith(date_to_view):
@@ -61,9 +61,9 @@ def view_note_by_date():
 #_____________________________________________________________________________________________
 def delete_note():
     note_to_remove = input("Enter the note title you want to delete: ").lower()
-    notes = utils.load_items("data/notes.json")
+    notes = utils.load_items("Backend/data/notes.json")
     notes_to_keep = [note for note in notes if note['title'].lower() != note_to_remove]
-    utils.save_items("data/notes.json", notes_to_keep)
+    utils.save_items("Backend/data/notes.json", notes_to_keep)
     if note_to_remove not in [note['title'].lower() for note in notes]:
         print(f"Note {note_to_remove} not found.")
     else:
@@ -77,12 +77,12 @@ def delete_note():
 #_____________________________________________________________________________________________
 def edit_note():
     note_to_edit = input("Enter the note title you want to edit: ").lower()
-    notes = utils.load_items("data/notes.json")
+    notes = utils.load_items("Backend/data/notes.json")
     for note in notes:
         if note['title'].lower() == note_to_edit:
             new_content = input("Enter the new content for the note: ")
             note['content'] = new_content
-            utils.save_items("data/notes.json", notes)
+            utils.save_items("Backend/data/notes.json", notes)
             print(f"Note {note_to_edit} updated.")
             return notes
         else:

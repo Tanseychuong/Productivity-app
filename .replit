@@ -21,9 +21,18 @@ args = "Smart Personal Schedule"
 name = "Smart Personal Schedule"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "webview"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python app.py"
+args = "python flask_app.py"
+waitForPort = 5000
 
-[workflows.workflow.metadata]
-outputType = "console"
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 43371
+externalPort = 3000

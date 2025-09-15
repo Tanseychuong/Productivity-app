@@ -22,7 +22,7 @@ def add_contact():
             email = "Not provided"
             break
     # Load existing contacts
-    contacts = utils.load_items("data/contacts.json")
+    contacts = utils.load_items("Backend/data/contacts.json")
     # Add new contact
     contacts.append({
         "first_name": name,
@@ -32,7 +32,7 @@ def add_contact():
     })
 
     # Save contacts
-    utils.save_items("data/contacts.json", contacts)
+    utils.save_items("Backend/data/contacts.json", contacts)
 # End of add_contact
 #____________________________________________________________________________________________________
 
@@ -48,7 +48,7 @@ def delete_contact():
     while "@" not in email or "." not in email:
         email = input("Enter a valid email: ")
     # Load existing contacts
-    contacts = utils.load_items("data/contacts.json")
+    contacts = utils.load_items("Backend/data/contacts.json")
     # Remove matching contact(s)
     new_contacts = [
         c for c in contacts
@@ -62,7 +62,7 @@ def delete_contact():
     if len(new_contacts) == len(contacts):
         print("Contact not found.")
     else:
-        utils.save_items("data/contacts.json", new_contacts)
+        utils.save_items("Backend/data/contacts.json", new_contacts)
         print("Contact deleted.")
     return delete_contact
 # End of delete_contact
@@ -73,14 +73,14 @@ def delete_contact():
 # Function to view all contacts
 #____________________________________________________________________________________________________
 def view_all_contacts():
-    contacts = utils.load_items("data/contacts.json")  # Load contacts from the file
+    contacts = utils.load_items("Backend/data/contacts.json")  # Load contacts from the file
     for contact in contacts:
         print(f"Name: {contact['first_name']} {contact['last_name']}, Phone: {contact['phone']}, Email: {contact['email']}")
 # This function is not called in the main loop, but can be used to view all contacts
 
 def search_contact():
     search_name = input("Enter the name to search: ")
-    contacts = utils.load_items("data/contacts.json")  # Load contacts from the file
+    contacts = utils.load_items("Backend/data/contacts.json")  # Load contacts from the file
     found_contacts = [
         contact for contact in contacts
         if search_name.lower() in contact["first_name"].lower() or
@@ -104,7 +104,7 @@ def update_contact():
     phone_num = input("Enter the new phone number: ")
     email = input("Enter the new email: ")
     # Load existing contacts
-    contacts = utils.load_items("data/contacts.json")  # Load contacts from the file
+    contacts = utils.load_items("Backend/data/contacts.json")  # Load contacts from the file
     # Validate email format
     if not utils.validate_email(email):
         email = input("Enter a valid email: ")  # Ensure the email is valid format
@@ -126,7 +126,7 @@ def update_contact():
         return
 
     # Save updated contacts
-    utils.save_items("data/contacts.json", contacts)  # Save updated contacts to the file
+    utils.save_items("Backend/data/contacts.json", contacts)  # Save updated contacts to the file
     print("Contact updated.")
     return update_contact()
 # End of the update_contact function
@@ -192,7 +192,7 @@ def add_contact() -> None:
         "phone": phone_num,
         "email": email
     })
-    utils.save_items("data/contacts.json", contacts)
+    utils.save_items("Backend/data/contacts.json", contacts)
     print("Contact added successfully.")
 
 def delete_contact() -> None:
@@ -281,7 +281,7 @@ def update_contact() -> None:
             contact["email"] = email
             break
     
-    utils.save_items("data/contacts.json", contacts)
+    utils.save_items("Backend/data/contacts.json", contacts)
     print("Contact updated.")
 
 def main() -> None:

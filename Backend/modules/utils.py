@@ -58,11 +58,36 @@ def validate_non_empty_string(input_value, prompt):
 #_____________________________________________________________________________________________
 
 
-# Function for undo last change (placeholder)
+# Function for undo last change 
 #_____________________________________________________________________________________________
-def undo_last_change():
-    """Placeholder function for undo functionality."""
-    print("Undo functionality not implemented yet.")
-    return False
+def create_backup(file_path: str) -> None:
+    """Create a backup of the current file before making changes."""
+    try:
+        backup_path = file_path + ".backup"
+        if os.path.exists(file_path):
+            import shutil
+            shutil.copy2(file_path, backup_path)
+    except Exception as e:
+        print(f"Error creating backup: {e}")
+
+def undo_last_change(file_path: str) -> bool:
+    """Restore the last backup of the specified file."""
+    try:
+        backup_path = file_path + ".backup"
+        if os.path.exists(backup_path):
+            import shutil
+            shutil.copy2(backup_path, file_path)
+            return True
+        else:
+            print("No backup found to restore.")
+            return False
+    except Exception as e:
+        print(f"Error during undo: {e}")
+        return False
+
+def save_items_with_backup(file_path: str, items) -> None:
+    """Save items to a file after creating a backup."""
+    create_backup(file_path)
+    save_items(file_path, items)
 '''End undo_last_change function'''
 #______________________________________________________________________________________________
