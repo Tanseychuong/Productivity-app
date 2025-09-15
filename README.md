@@ -37,7 +37,7 @@ Contact Management: Add, delete, update, search, and view contacts
 Journal Management: Add, view, edit, and delete journal entries
 Notes Management: Add, view by date, and delete notes
 Task Management: Add, view, delete, and mark tasks as completed
-Data Persistence: All data stored in JSON files
+Data Persistence: All data is stored in JSON files
 Technical Details
 Language: Python 3.11
 Dependencies: tabulate (for table formatting)
@@ -50,3 +50,4 @@ JSON data storage for portability
 Modular code structure for maintainability
 Running the Application
 The application runs automatically via the workflow. Users can interact with the CLI through the console output to manage their personal schedule data.
+
