@@ -372,5 +372,8 @@ def delete_task(task_id):
     return redirect(url_for('tasks'))
 
 if __name__ == '__main__':
-    # Configure for Replit environment - bind to all interfaces and port 5000
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    # Configure for render environment - bind to all interfaces and port 5000
+    app.run(
+        host='0.0.0.0',
+        port=int(os.environ.get("PORT",10000))
+    )
