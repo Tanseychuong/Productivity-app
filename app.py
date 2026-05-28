@@ -15,7 +15,7 @@ import Backend.modules.tasks as tasks
 
 #main loop for the contact management system
 #__________________________________________________________________________________________________
-while True:
+'''while True:
     print("Welcome to the smart personal schedules system")
     print("1. Contact Management")
     print("2. Journal Management")
@@ -39,7 +39,7 @@ while True:
     else:
         print("Invalid choice. Please try again.")
         continue
-'''End of the main module'''
+End of the main module'''
 #__________________________________________________________________________________________________
 # This module serves as the entry point for the smart personal 
 # schedules system, integrating various management features.

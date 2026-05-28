@@ -102,7 +102,12 @@ def delete_task():
     print(f"Task '{task_name}' deleted successfully.")
     return delete_task
 #_____________________________________________________________________________________________
-
+'''def reminder():
+    while True:
+        tasks = utils.load_items("Backend/data/tasks.json")
+        for task in tasks:
+            if :'''
+#_____________________________________________________________________________________________
 
 # The function that exits the task management system
 #_____________________________________________________________________________________________
