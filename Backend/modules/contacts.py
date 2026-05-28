@@ -1,4 +1,4 @@
-#Creating a python file for contact managment for smart schedule
+#Creating a python file for contact management for smart schedule
 # The implementation includes functions to add, delete, view, search, and update contacts.
 
 
